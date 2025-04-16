@@ -1,11 +1,11 @@
 # Global Asian Project 
 
-Set up:
-run: 
-npm install
-npm run dev
+Set up<br>
+run: <br>
+npm install<br>
+npm run dev<br>
 
 ## Core Contributor
-Mengpang Xing
-Ethan Lam
-Teresa Ayala Leon
+Mengpang Xing<br>
+Ethan Lam<br>
+Teresa Ayala Leon<br>
