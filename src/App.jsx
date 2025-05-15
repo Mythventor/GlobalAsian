@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './components/HomePage';
+import AboutPage from './components/Aboutpage';
+import StoriesPage from './components/StoriesPage';
+import BlogPage from './components/BlogPage';
+import BibliographyPage from './components/BibliographyPage';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeSection, setActiveSection] = useState('home');
+
+  const renderActivePage = () => {
+    switch(activeSection) {
+      case 'home':
+        return <HomePage setActiveSection={setActiveSection} />;
+      case 'about':
+        return <AboutPage />;
+      case 'stories':
+        return <StoriesPage />;
+      case 'blog':
+        return <BlogPage />;
+      case 'bibliography':
+        return <BibliographyPage />;
+      case 'contact':
+        return <div>Contact Page Content</div>;
+      default:
+        return <HomePage setActiveSection={setActiveSection} />;
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edits<code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-stone-50 text-stone-800 font-sans">
+      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+      <main className="pt-20">
+        {renderActivePage()}
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
