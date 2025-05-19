@@ -1,13 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import blogPostsData from '../data/blogPostsData';
 
 const BlogPage = () => {
+  const { category, tag } = useParams();
+  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [filterInfo, setFilterInfo] = useState(null);
+
+  useEffect(() => {
+    // Filter posts based on category or tag if provided
+    if (category) {
+      const filtered = blogPostsData.filter(post => 
+        post.category.toLowerCase() === category.toLowerCase()
+      );
+      setFilteredPosts(filtered);
+      setFilterInfo({
+        type: 'category',
+        value: category.charAt(0).toUpperCase() + category.slice(1)
+      });
+    } else if (tag) {
+      const filtered = blogPostsData.filter(post => 
+        post.tags.some(t => t.toLowerCase() === tag.toLowerCase())
+      );
+      setFilteredPosts(filtered);
+      setFilterInfo({
+        type: 'tag',
+        value: tag
+      });
+    } else {
+      setFilteredPosts(blogPostsData);
+      setFilterInfo(null);
+    }
+  }, [category, tag]);
+
   return (
-    <div>
+    <div className="text-lg">
       <section className="py-16 bg-indigo-900 text-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Blog</h1>
-          <p className="text-xl text-indigo-100 max-w-3xl">
-            Insights, research, and reflections on Vietnamese refugee experiences and history.
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            {filterInfo ? `Blog: ${filterInfo.type === 'category' ? filterInfo.value : '#' + filterInfo.value}` : 'Blog'}
+          </h1>
+          <p className="text-2xl text-indigo-100 max-w-3xl">
+            {filterInfo 
+              ? `Articles ${filterInfo.type === 'category' ? 'in the ' + filterInfo.value + ' category' : 'tagged with #' + filterInfo.value}`
+              : 'Insights, research, and reflections on Vietnamese refugee experiences and history in Canada.'}
           </p>
         </div>
       </section>
@@ -16,36 +52,27 @@ const BlogPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm mb-8">
-                <div className="h-64 bg-[url('/api/placeholder/800/400')] bg-cover bg-center"></div>
-                <div className="p-6">
-                  <div className="text-indigo-600 text-sm font-medium mb-2">April 10, 2025 • History</div>
-                  <h2 className="text-2xl font-bold mb-4">The Historical Context of Vietnamese Boat People</h2>
-                  <p className="text-lg text-stone-600 mb-4">
-                    Understanding the political and social factors that led to one of the largest refugee crises of the 20th century requires examining the complex history of Vietnam following World War II.
-                  </p>
-                  <p className="text-lg text-stone-600 mb-6">
-                    This article explores the events leading up to the fall of Saigon in 1975 and the subsequent refugee crisis that saw over one million Vietnamese people flee their homeland.
-                  </p>
-                  <button className="text-indigo-600 font-medium hover:text-indigo-800 transition">
-                    Continue Reading →
-                  </button>
+              {filterInfo && (
+                <div className="mb-8">
+                  <Link to="/blog" className="text-indigo-600 hover:text-indigo-800 transition mb-4 inline-block text-lg">
+                    ← Back to All Posts
+                  </Link>
                 </div>
-              </div>
+              )}
 
               <div className="grid md:grid-cols-2 gap-8">
-                {[1, 2, 3, 4].map((post) => (
-                  <div key={post} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-                    <div className="h-40 bg-[url('/api/placeholder/400/300')] bg-cover bg-center"></div>
+                {filteredPosts.map((post) => (
+                  <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${post.featuredImage})` }}></div>
                     <div className="p-6">
-                      <div className="text-indigo-600 text-sm font-medium mb-2">March 28, 2025 • Culture</div>
-                      <h3 className="text-xl font-semibold mb-3">Vietnamese Cultural Influence in Australia</h3>
-                      <p className="text-stone-600 mb-4">
-                        How Vietnamese communities have enriched Australian society through cuisine, arts, and cultural practices.
+                      <div className="text-indigo-600 text-lg font-medium mb-2">{post.date} • {post.category}</div>
+                      <h3 className="text-2xl font-semibold mb-3">{post.title}</h3>
+                      <p className="text-stone-600 mb-4 text-lg">
+                        {post.excerpt}
                       </p>
-                      <button className="text-indigo-600 font-medium hover:text-indigo-800 transition">
+                      <Link to={`/blog/${post.slug}`} className="text-indigo-600 font-medium hover:text-indigo-800 transition text-lg">
                         Read More →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -54,48 +81,43 @@ const BlogPage = () => {
 
             <div className="lg:col-span-1">
               <div className="bg-stone-50 p-6 rounded-lg mb-8">
-                <h3 className="text-xl font-bold mb-4">Categories</h3>
+                <h3 className="text-2xl font-bold mb-4">Categories</h3>
                 <ul className="space-y-2">
-                  {["First generation", "Second generation"].map((category) => (
-                    <li key={category}>
-                      <button className="text-indigo-600 hover:text-indigo-800 transition">
+                  {Array.from(new Set(blogPostsData.map(post => post.category))).map((category) => (
+                    <li key={category} className="text-lg">
+                      <Link to={`/blog/category/${category.toLowerCase()}`} className="text-indigo-600 hover:text-indigo-800 transition">
                         {category}
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className="bg-stone-50 p-6 rounded-lg mb-8">
-                <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
+                <h3 className="text-2xl font-bold mb-4">Recent Posts</h3>
                 <ul className="space-y-4">
-                  {[
-                    "Remembering the First Arrivals to Darwin",
-                    "Oral History Project: Voices from the Past",
-                    "Second Generation Perspectives",
-                    "The Role of Community Organizations"
-                  ].map((post) => (
-                    <li key={post} className="pb-4 border-b border-stone-200 last:border-0">
-                      <button className="text-indigo-600 hover:text-indigo-800 transition">
-                        {post}
-                      </button>
+                  {blogPostsData.slice(0, 4).map((post) => (
+                    <li key={post.id} className="pb-4 border-b border-stone-200 last:border-0">
+                      <Link to={`/blog/${post.slug}`} className="text-indigo-600 hover:text-indigo-800 transition text-lg">
+                        {post.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className="bg-indigo-100 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Subscribe to Our Newsletter</h3>
-                <p className="text-stone-600 mb-4">
+                <h3 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h3>
+                <p className="text-stone-600 mb-4 text-lg">
                   Stay updated with our latest stories and research.
                 </p>
                 <div className="space-y-4">
                   <input 
                     type="email" 
                     placeholder="Your email address" 
-                    className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
                   />
-                  <button className="w-full px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">
+                  <button className="w-full px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition text-lg">
                     Subscribe
                   </button>
                 </div>

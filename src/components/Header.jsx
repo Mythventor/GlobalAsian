@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
-const Header = ({ activeSection, setActiveSection }) => {
+const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  
+  // Get current active section from URL path
+  const getActiveSection = (pathname) => {
+    if (pathname === '/') return 'home';
+    return pathname.substring(1); // Remove the leading slash
+  };
+  
+  const activeSection = getActiveSection(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,42 +27,37 @@ const Header = ({ activeSection, setActiveSection }) => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const setSection = (section) => {
-    setActiveSection(section);
-    setMobileMenuOpen(false);
-  };
-
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'timeline', label: 'Timeline' },
-    { id: 'stories', label: 'Stories' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'bibliography', label: 'Bibliography' },
+    { id: 'home', label: 'Home', path: '/' },
+    { id: 'timeline', label: 'Timeline', path: '/timeline' },
+    { id: 'stories', label: 'Stories', path: '/stories' },
+    { id: 'blog', label: 'Blog', path: '/blog' },
+    { id: 'bibliography', label: 'Bibliography', path: '/bibliography' },
+    { id: 'about', label: 'About Us', path: '/about' },
   ];
 
   return (
     <header className={`fixed w-full z-30 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <button 
-            onClick={() => setSection('home')} 
+          <Link 
+            to="/" 
             className="text-2xl font-bold text-indigo-800 hover:text-indigo-600 transition"
           >
             Vietnamese Project
-          </button>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {navItems.map(item => (
-            <button 
+            <Link 
               key={item.id}
-              onClick={() => setSection(item.id)} 
+              to={item.path} 
               className={`font-medium transition hover:text-indigo-600 ${activeSection === item.id ? 'text-indigo-600' : ''}`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
         </nav>
 
@@ -67,13 +72,14 @@ const Header = ({ activeSection, setActiveSection }) => {
         <div className="md:hidden bg-white shadow-lg">
           <div className="container mx-auto px-4 py-3 space-y-3">
             {navItems.map(item => (
-              <button 
+              <Link 
                 key={item.id}
-                onClick={() => setSection(item.id)} 
+                to={item.path} 
                 className="block w-full text-left py-2 font-medium hover:text-indigo-600"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>

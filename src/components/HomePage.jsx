@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Users, Map, Heart, ChevronDown } from 'lucide-react';
 
-const HomePage = ({ setActiveSection }) => {
+const HomePage = () => {
   return (
     <div>
       {/* Hero Section */}
@@ -18,18 +19,18 @@ const HomePage = ({ setActiveSection }) => {
                 Documenting the stories, history, and legacy of Vietnamese refugees who sought freedom across treacherous seas.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button 
-                  onClick={() => setActiveSection('stories')} 
+                <Link 
+                  to="/stories" 
                   className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
                 >
                   Read Stories
-                </button>
-                <button 
-                  onClick={() => setActiveSection('about')} 
+                </Link>
+                <Link 
+                  to="/about" 
                   className="px-6 py-3 bg-white text-indigo-800 font-medium rounded-lg hover:bg-indigo-50 transition"
                 >
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -47,7 +48,7 @@ const HomePage = ({ setActiveSection }) => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Personal Narratives</h3>
               <p className="text-stone-600">
-                First-hand accounts from Vietnamese refugees who sought safety and a new beginning in Australia and beyond.
+                First-hand accounts from Vietnamese refugees who sought safety and a new beginning in Canada and beyond.
               </p>
             </div>
             <div className="bg-indigo-50 p-6 rounded-lg">
@@ -65,7 +66,7 @@ const HomePage = ({ setActiveSection }) => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Cultural Legacy</h3>
               <p className="text-stone-600">
-                Exploring how Vietnamese communities have contributed to and enriched Australian society and culture.
+                Exploring how Vietnamese communities have contributed to and enriched Canadian society and culture.
               </p>
             </div>
           </div>
@@ -77,12 +78,12 @@ const HomePage = ({ setActiveSection }) => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-12">
             <h2 className="text-3xl font-bold">Latest from our Blog</h2>
-            <button 
-              onClick={() => setActiveSection('blog')} 
+            <Link 
+              to="/blog" 
               className="text-indigo-600 font-medium hover:text-indigo-800 transition flex items-center"
             >
               View All <ChevronDown size={16} className="ml-1 transform rotate-270" />
-            </button>
+            </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
@@ -90,7 +91,7 @@ const HomePage = ({ setActiveSection }) => {
                 <div className="h-48 bg-[url('/api/placeholder/400/300')] bg-cover bg-center"></div>
                 <div className="p-6">
                   <div className="text-indigo-600 text-sm font-medium mb-2">April 10, 2025</div>
-                  <h3 className="text-xl font-semibold mb-3">The Journey to Australian Shores</h3>
+                  <h3 className="text-xl font-semibold mb-3">The Journey to Canadian Shores</h3>
                   <p className="text-stone-600 mb-4">
                     Examining the perilous sea journeys undertaken by Vietnamese refugees in the late 1970s and early 1980s.
                   </p>
@@ -111,12 +112,12 @@ const HomePage = ({ setActiveSection }) => {
           <p className="text-xl text-stone-600 mb-8 max-w-2xl mx-auto">
             Do you have a story to share? Are you a researcher, historian, or simply interested in contributing?
           </p>
-          <button 
-            onClick={() => setActiveSection('contact')}
+          <Link 
+            to="/contact"
             className="px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
           >
             Get Involved
-          </button>
+          </Link>
         </div>
       </section>
     </div>

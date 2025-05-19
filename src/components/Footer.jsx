@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,21 +15,21 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-indigo-200">
-              <li><button className="hover:text-white transition">Home</button></li>
-              <li><button className="hover:text-white transition">About Us</button></li>
-              <li><button className="hover:text-white transition">Stories</button></li>
-              <li><button className="hover:text-white transition">Blog</button></li>
-              <li><button className="hover:text-white transition">Bibliography</button></li>
-              <li><button className="hover:text-white transition">Contact</button></li>
+              <li><Link to="/" className="hover:text-white transition">Home</Link></li>
+              <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link to="/stories" className="hover:text-white transition">Stories</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
+              <li><Link to="/bibliography" className="hover:text-white transition">Bibliography</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
             </ul>
           </div>
           <div className="md:col-span-1">
             <h4 className="text-lg font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-indigo-200">
-              <li><button className="hover:text-white transition">Oral History Archive</button></li>
-              <li><button className="hover:text-white transition">Photo Gallery</button></li>
-              <li><button className="hover:text-white transition">Research Papers</button></li>
-              <li><button className="hover:text-white transition">Submit Your Story</button></li>
+              <li><Link to="/oral-history" className="hover:text-white transition">Oral History Archive</Link></li>
+              <li><Link to="/gallery" className="hover:text-white transition">Photo Gallery</Link></li>
+              <li><Link to="/research" className="hover:text-white transition">Research Papers</Link></li>
+              <li><Link to="/submit-story" className="hover:text-white transition">Submit Your Story</Link></li>
             </ul>
           </div>
         </div>

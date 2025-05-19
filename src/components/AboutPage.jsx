@@ -38,7 +38,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { name: "Mengpang Xing", role: "Team 11", bio: "Computer Science & Data Science @ Northwestern University" },
-              { name: "Ethan Lam", role: "Team 11", bio: "Computer Science @ Northwestern University" },
+              { name: "Ethan Lam", role: "Team 11", bio: "Computer Science @ Northwestern University, Weinberg Psychology transfer Fall 2025" },
               { name: "Teresa Ayala Leon", role: "Team 11", bio: "Journalism @ Northwestern University " }
             ].map((member, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm">

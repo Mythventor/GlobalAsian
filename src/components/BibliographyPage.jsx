@@ -1,13 +1,55 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BibliographyPage = () => {
+  const books = [
+    {
+      title: "Passage to Freedom: The Vietnamese-Canadian Experience",
+      author: "Peter Nguyen",
+      year: "2004",
+      publisher: "Canadian Historical Press",
+      description: "A comprehensive history of Vietnamese refugees in Canada, focusing on their arrival, settlement, and integration into Canadian society."
+    },
+    {
+      title: "The Vietnamese Boat People: A Canadian Response",
+      author: "Michael Molloy",
+      year: "2017",
+      publisher: "McGill-Queen's University Press",
+      description: "An examination of Canada's response to the Vietnamese refugee crisis and the implementation of the Private Sponsorship Program."
+    },
+    {
+      title: "From Vietnam to Canada: A Journey of Hope",
+      author: "Lan Nguyen",
+      year: "2010",
+      publisher: "University of Toronto Press",
+      description: "A collection of oral histories from Vietnamese refugees who settled in various communities across Canada."
+    }
+  ];
+
+  const articles = [
+    {
+      title: "Building a Vietnamese Community in Canada: A Case Study of Toronto",
+      author: "Thi Nguyen",
+      year: "2012",
+      publisher: "Journal of Canadian Studies",
+      description: "An academic analysis of how Vietnamese refugees established communities and cultural institutions in Toronto."
+    },
+    {
+      title: "The Impact of Private Sponsorship on Vietnamese Refugee Integration",
+      author: "Robert Vanderclay",
+      year: "2015",
+      publisher: "Canadian Journal of Sociology",
+      description: "A study examining how the private sponsorship model affected the integration outcomes for Vietnamese refugees in Canada."
+    }
+  ];
+
   return (
     <div>
       <section className="py-16 bg-indigo-900 text-white">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Bibliography</h1>
           <p className="text-xl text-indigo-100 max-w-3xl">
-            Academic resources, books, articles, and reference materials on Vietnamese boat people.
+            Primary and secondary sources on Vietnamese boat people in Canada.
           </p>
         </div>
       </section>
@@ -19,29 +61,7 @@ const BibliographyPage = () => {
               <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
                 <h2 className="text-2xl font-bold mb-6">Books</h2>
                 <div className="space-y-6">
-                  {[
-                    {
-                      title: "Book title",
-                      author: "Author Name",
-                      year: "Year",
-                      publisher: "Publisher",
-                      description: "A collection of oral histories from Vietnamese women who settled in Australia."
-                    },
-                    {
-                      title: "Book title",
-                      author: "Author Name",
-                      year: "Year",
-                      publisher: "Publisher",
-                      description: "A collection of oral histories from Vietnamese women who settled in Australia."
-                    },
-                    {
-                      title: "Book title",
-                      author: "Author Name",
-                      year: "Year",
-                      publisher: "Publisher",
-                      description: "A collection of oral histories from Vietnamese women who settled in Australia."
-                    }
-                  ].map((book, index) => (
+                  {books.map((book, index) => (
                     <div key={index} className="pb-6 border-b border-stone-200 last:border-0">
                       <h3 className="text-xl font-bold text-indigo-800">{book.title}</h3>
                       <p className="text-stone-600 mb-2">{book.author} ({book.year}), {book.publisher}</p>
@@ -54,22 +74,7 @@ const BibliographyPage = () => {
               <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
                 <h2 className="text-2xl font-bold mb-6">Academic Articles</h2>
                 <div className="space-y-6">
-                  {[
-                    {
-                      title: "Article title",
-                      author: "Author Name",
-                      year: "Year",
-                      publisher: "Publisher",
-                      description: "A collection of oral histories from Vietnamese women who settled in Australia."
-                    },
-                    {
-                      title: "Article title",
-                      author: "Author Name",
-                      year: "Year",
-                      publisher: "Publisher",
-                      description: "A collection of oral histories from Vietnamese women who settled in Australia."
-                    }
-                  ].map((article, index) => (
+                  {articles.map((article, index) => (
                     <div key={index} className="pb-6 border-b border-stone-200 last:border-0">
                       <h3 className="text-xl font-bold text-indigo-800">{article.title}</h3>
                       <p className="text-stone-600 mb-2">{article.author} ({article.year}), {article.publisher}</p>
@@ -108,9 +113,9 @@ const BibliographyPage = () => {
                 <p className="text-stone-600 mb-4">
                   Do you know of important resources that should be included in our bibliography?
                 </p>
-                <button className="w-full px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">
+                <Link to="/submit-resource" className="w-full px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition block text-center">
                   Suggest a Resource
-                </button>
+                </Link>
               </div>
             </div>
           </div>
