@@ -59,7 +59,7 @@ const BibliographyPage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
-                <h2 className="text-2xl font-bold mb-6">Books</h2>
+                <h2 className="text-2xl font-bold mb-6">Primary sources</h2>
                 <div className="space-y-6">
                   {books.map((book, index) => (
                     <div key={index} className="pb-6 border-b border-stone-200 last:border-0">
@@ -72,7 +72,7 @@ const BibliographyPage = () => {
               </div>
 
               <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
-                <h2 className="text-2xl font-bold mb-6">Academic Articles</h2>
+                <h2 className="text-2xl font-bold mb-6">Secondary sources</h2>
                 <div className="space-y-6">
                   {articles.map((article, index) => (
                     <div key={index} className="pb-6 border-b border-stone-200 last:border-0">
@@ -90,14 +90,8 @@ const BibliographyPage = () => {
                 <h3 className="text-xl font-bold mb-4">Resource Categories</h3>
                 <ul className="space-y-2">
                   {[
-                    "Books", 
-                    "Academic Articles", 
-                    "Documentaries", 
-                    "Oral Histories", 
-                    "Government Reports", 
-                    "News Archives",
-                    "Photographs",
-                    "Personal Documents"
+                    "Primary sources",
+                    "Secondary sources",
                   ].map((category) => (
                     <li key={category}>
                       <button className="text-indigo-600 hover:text-indigo-800 transition">

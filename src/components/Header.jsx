@@ -44,7 +44,7 @@ const Header = () => {
             to="/" 
             className="text-2xl font-bold text-indigo-800 hover:text-indigo-600 transition"
           >
-            Vietnamese Project
+            Vietnamese Journeys
           </Link>
         </div>
 
