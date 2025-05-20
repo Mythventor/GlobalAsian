@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Map, Heart, ChevronDown } from 'lucide-react';
+import blogPostsData from '../data/blogPostsData';
 
 const HomePage = () => {
   return (
@@ -86,18 +87,18 @@ const HomePage = () => {
             </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-                <div className="h-48 bg-[url('/api/placeholder/400/300')] bg-cover bg-center"></div>
+            {blogPostsData.map((post) => (
+              <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${post.featuredImage})` }}></div>
                 <div className="p-6">
-                  <div className="text-indigo-600 text-sm font-medium mb-2">April 10, 2025</div>
-                  <h3 className="text-xl font-semibold mb-3">The Journey to Canadian Shores</h3>
+                  <div className="text-indigo-600 text-sm font-medium mb-2">{post.date}</div>
+                  <h3 className="text-xl font-semibold mb-3">{post.title}</h3>
                   <p className="text-stone-600 mb-4">
-                    Examining the perilous sea journeys undertaken by Vietnamese refugees in the late 1970s and early 1980s.
+                    {post.excerpt}
                   </p>
-                  <button className="text-indigo-600 font-medium hover:text-indigo-800 transition">
+                  <Link to={`/blog/${post.slug}`} className="text-indigo-600 font-medium hover:text-indigo-800 transition">
                     Read More →
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

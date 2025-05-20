@@ -2,44 +2,44 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BibliographyPage = () => {
-  const books = [
+  const primary_sources = [
     {
-      title: "Passage to Freedom: The Vietnamese-Canadian Experience",
-      author: "Peter Nguyen",
-      year: "2004",
-      publisher: "Canadian Historical Press",
-      description: "A comprehensive history of Vietnamese refugees in Canada, focusing on their arrival, settlement, and integration into Canadian society."
+      title: "Work in progress",
+      author: "",
+      year: "",
+      publisher: "",
+      description: ""
     },
     {
-      title: "The Vietnamese Boat People: A Canadian Response",
-      author: "Michael Molloy",
-      year: "2017",
-      publisher: "McGill-Queen's University Press",
-      description: "An examination of Canada's response to the Vietnamese refugee crisis and the implementation of the Private Sponsorship Program."
+      title: "Work in progress",
+      author: "",
+      year: "",
+      publisher: "",
+      description: ""
     },
     {
-      title: "From Vietnam to Canada: A Journey of Hope",
-      author: "Lan Nguyen",
-      year: "2010",
-      publisher: "University of Toronto Press",
-      description: "A collection of oral histories from Vietnamese refugees who settled in various communities across Canada."
+      title: "Work in progress",
+      author: "",
+      year: "",
+      publisher: "",
+      description: ""
     }
   ];
 
-  const articles = [
+  const secondary_sources = [
     {
-      title: "Building a Vietnamese Community in Canada: A Case Study of Toronto",
-      author: "Thi Nguyen",
-      year: "2012",
-      publisher: "Journal of Canadian Studies",
-      description: "An academic analysis of how Vietnamese refugees established communities and cultural institutions in Toronto."
+      title: "Work in progress",
+      author: "",
+      year: "",
+      publisher: "",
+      description: ""
     },
     {
-      title: "The Impact of Private Sponsorship on Vietnamese Refugee Integration",
-      author: "Robert Vanderclay",
-      year: "2015",
-      publisher: "Canadian Journal of Sociology",
-      description: "A study examining how the private sponsorship model affected the integration outcomes for Vietnamese refugees in Canada."
+      title: "Work in progress",
+      author: "",
+      year: "",
+      publisher: "",
+      description: ""
     }
   ];
 
@@ -61,11 +61,11 @@ const BibliographyPage = () => {
               <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
                 <h2 className="text-2xl font-bold mb-6">Primary sources</h2>
                 <div className="space-y-6">
-                  {books.map((book, index) => (
+                  {primary_sources.map((primary_source, index) => (
                     <div key={index} className="pb-6 border-b border-stone-200 last:border-0">
-                      <h3 className="text-xl font-bold text-indigo-800">{book.title}</h3>
-                      <p className="text-stone-600 mb-2">{book.author} ({book.year}), {book.publisher}</p>
-                      <p className="text-stone-600">{book.description}</p>
+                      <h3 className="text-xl font-bold text-indigo-800">{primary_source.title}</h3>
+                      <p className="text-stone-600 mb-2">{primary_source.author} ({primary_source.year}), {primary_source.publisher}</p>
+                      <p className="text-stone-600">{primary_source.description}</p>
                     </div>
                   ))}
                 </div>
@@ -74,11 +74,11 @@ const BibliographyPage = () => {
               <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
                 <h2 className="text-2xl font-bold mb-6">Secondary sources</h2>
                 <div className="space-y-6">
-                  {articles.map((article, index) => (
+                  {secondary_sources.map((secondary_source, index) => (
                     <div key={index} className="pb-6 border-b border-stone-200 last:border-0">
-                      <h3 className="text-xl font-bold text-indigo-800">{article.title}</h3>
-                      <p className="text-stone-600 mb-2">{article.author} ({article.year}), {article.publisher}</p>
-                      <p className="text-stone-600">{article.description}</p>
+                      <h3 className="text-xl font-bold text-indigo-800">{secondary_source.title}</h3>
+                      <p className="text-stone-600 mb-2">{secondary_source.author} ({secondary_source.year}), {secondary_source.publisher}</p>
+                      <p className="text-stone-600">{secondary_source.description}</p>
                     </div>
                   ))}
                 </div>
