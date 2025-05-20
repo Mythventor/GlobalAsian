@@ -16,11 +16,11 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-indigo-200">
               <li><Link to="/" className="hover:text-white transition">Home</Link></li>
-              <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link to="/timeline" className="hover:text-white transition">Timeline</Link></li>
               <li><Link to="/stories" className="hover:text-white transition">Stories</Link></li>
               <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
               <li><Link to="/bibliography" className="hover:text-white transition">Bibliography</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
+              <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
             </ul>
           </div>
           <div className="md:col-span-1">
