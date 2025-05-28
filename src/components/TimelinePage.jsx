@@ -6,6 +6,15 @@ const TimelinePage = () => {
   // Updated to include Canadian-specific events
   const timelineEvents = [
     {
+      id: 'event-1955',
+      year: '1955',
+      title: 'Vietnam War Begins',
+      description: 'The Vietnam War officially begins as the United States starts providing military advisors to South Vietnam. This conflict would eventually displace millions of Vietnamese people.',
+      imagePosition: 'left'
+    },
+    
+    {
+      
       id: 'event-1967',
       year: '1967',
       title: 'Merit-based points system',

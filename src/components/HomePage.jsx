@@ -37,7 +37,7 @@ const HomePage = () => {
               <p className="text-xl text-indigo-100 mb-8">
                 <TypeAnimation
                   sequence={[
-                    'Documenting the stories, history, and legacy of Vietnamese refugees who sought freedom across treacherous seas.',
+                    'Documenting the stories, history, and legacy of Vietnamese refugees in Canada',
                     5000,
                   ]}
                   wrapper="span"
@@ -178,7 +178,7 @@ const HomePage = () => {
             Do you have a story to share? Are you a researcher, historian, or simply interested in contributing?
           </p>
           <Link 
-            to="/contact"
+            to="https://docs.google.com/forms/d/e/1FAIpQLSfDgWp4BNzOeXKUtqM4pMQKU2S37uuYldk9J3qKmHCKx7ZoGA/viewform?usp=header"
             className="px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition transform hover:scale-105 duration-300"
           >
             Get Involved

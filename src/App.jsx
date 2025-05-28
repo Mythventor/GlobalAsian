@@ -13,7 +13,7 @@ import TimelinePage from './components/TimelinePage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/GlobalAsian">
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow pt-16">

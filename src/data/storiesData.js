@@ -5,9 +5,50 @@ import story2Image3 from "/src/assets/story2-3.webp"
 
 
 const storiesData = [
-
-    {
+  {
     id: 1,
+    slug: "escape-to-freedom-tran-family",
+    title: "Escape to Freedom: The Tran Family",
+    description: "Dr. Tuan Tran fled Vietnam with his two children after the fall of Saigon, surviving a pirate attack and refugee camps before finding safety in Canada.",
+    arrivalYear: "1975",
+    location: "Toronto",
+    featuredImage: story1Image1,
+    fullStory: `
+      <h2 class="text-2xl font-bold mb-4">A Desperate Escape</h2>
+      <p>Dr. Tuan Tran was part of the first wave of Vietnamese refugees to flee the country after the fall of Saigon, escaping in November 1975 with his two children. He was American-educated at the University of Florida and returned to Vietnam in 1974 with hopes of helping rebuild his homeland. But as the political situation deteriorated in 1975, he made the decision to escape, leaving his wife behind to maintain a cover story.</p>
+      
+      <p>After abandoning his home, Dr. Tran and his children moved through safehouses before boarding a boat. The decision to leave everything behind was heart-wrenching, but Dr. Tran knew that his American education and connections would make him a target of the new regime.</p>
+      
+      <br>
+      <h2 class="text-2xl font-bold mb-4">Tragedy at Sea</h2>
+      <p>Three days into their journey, the boat began taking on water and was attacked by pirates posing as fishermen. The men and children were separated, and the boat was torn apart in the chaos. Dr. Tran was thrown overboard, and only those who could swim survived the ordeal.</p>
+      
+      <p>Eventually, survivors climbed into a damaged boat, drifting without a compass or adequate supplies. For days, they were at the mercy of the sea, with dwindling hope of rescue. Then, they spotted mountains on the horizon—it was Malaysia.</p>
+      
+      <br>
+      <h2 class="text-2xl font-bold mb-4">Life in Pulau Bidong</h2>
+      <p>The survivors landed on Pulau Bidong, a small island already holding 35,000 refugees in makeshift conditions. Food was scarce, sanitation was poor, and the future remained uncertain. Despite these challenges, a sense of community formed among the refugees, with people helping each other and sharing what little they had.</p>
+      
+      <p>Dr. Tran's medical training proved invaluable in the camp, as he worked to treat illnesses and injuries with extremely limited resources. For four long months, the family lived in limbo, waiting for news of possible resettlement while hoping that Dr. Tran's wife might somehow join them.</p>
+      
+
+      <br>
+      <h2 class="text-2xl font-bold mb-4">A New Beginning in Canada</h2>
+      <p>After four months on the island, Dr. Tran and his children were finally selected for resettlement in Canada. They arrived during the harsh winter months, a stark contrast to Vietnam's tropical climate. The family was sponsored by a church group in Toronto, who provided housing, clothing, and support as they adjusted to their new life.</p>
+      
+      <p>Though Dr. Tran had to undergo recertification to practice medicine in Canada, he eventually established himself as a respected physician. His children thrived in the Canadian education system, both eventually pursuing careers in healthcare, inspired by their father's dedication and resilience.</p>
+      
+
+      <br>
+      <h2 class="text-2xl font-bold mb-4">Family Reunification</h2>
+      <p>After three years of separation, Dr. Tran's wife was finally able to join the family in Canada through the family reunification program. The reunion was bittersweet—joyful for the family to be together again, but marked by the years of separation and the trauma they had each endured separately.</p>
+      
+      <p>Today, the Tran family's story serves as a powerful testament to the human capacity for survival and renewal. Their journey from Vietnam to Canada exemplifies the experiences of many Vietnamese refugees who risked everything for freedom and found a new home in a country that opened its doors during their time of greatest need.</p>
+    `,
+    relatedStories: ["nguyen-family-journey", "boat-people-survivors"]
+  },
+    {
+    id: 2,
     slug: "kim-thuy-literary-journey",
     title: "Kim Thúy: From Refugee to Literary Voice",
     description: "The remarkable journey of Kim Thúy, who fled Vietnam as a child and became one of Canada's most celebrated authors, giving voice to the refugee experience through her award-winning novels.",
@@ -74,53 +115,9 @@ The flight of Vietnamese refugees began after the fall of Saigon in 1975. In spi
         <iframe width="100%" height="500" src="https://www.youtube.com/embed/Vc6nGTBwI18?si=W8pvUoYZfGkZGKkH&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-lg shadow-md"></iframe>
       </div>
     `,
-    relatedStories: ["escape-to-freedom-tran-family", ]
+    relatedStories: ["escape-to-freedom-tran-family", "boat-people-survivors"]
   },
-
-  {
-    id: 2,
-    slug: "escape-to-freedom-tran-family",
-    title: "Escape to Freedom: The Tran Family",
-    description: "Dr. Tuan Tran fled Vietnam with his two children after the fall of Saigon, surviving a pirate attack and refugee camps before finding safety in Canada.",
-    arrivalYear: "1975",
-    location: "Toronto",
-    featuredImage: story1Image1,
-    fullStory: `
-      <h2 class="text-2xl font-bold mb-4">A Desperate Escape</h2>
-      <p>Dr. Tuan Tran was part of the first wave of Vietnamese refugees to flee the country after the fall of Saigon, escaping in November 1975 with his two children. He was American-educated at the University of Florida and returned to Vietnam in 1974 with hopes of helping rebuild his homeland. But as the political situation deteriorated in 1975, he made the decision to escape, leaving his wife behind to maintain a cover story.</p>
-      
-      <p>After abandoning his home, Dr. Tran and his children moved through safehouses before boarding a boat. The decision to leave everything behind was heart-wrenching, but Dr. Tran knew that his American education and connections would make him a target of the new regime.</p>
-      
-      <br>
-      <h2 class="text-2xl font-bold mb-4">Tragedy at Sea</h2>
-      <p>Three days into their journey, the boat began taking on water and was attacked by pirates posing as fishermen. The men and children were separated, and the boat was torn apart in the chaos. Dr. Tran was thrown overboard, and only those who could swim survived the ordeal.</p>
-      
-      <p>Eventually, survivors climbed into a damaged boat, drifting without a compass or adequate supplies. For days, they were at the mercy of the sea, with dwindling hope of rescue. Then, they spotted mountains on the horizon—it was Malaysia.</p>
-      
-      <br>
-      <h2 class="text-2xl font-bold mb-4">Life in Pulau Bidong</h2>
-      <p>The survivors landed on Pulau Bidong, a small island already holding 35,000 refugees in makeshift conditions. Food was scarce, sanitation was poor, and the future remained uncertain. Despite these challenges, a sense of community formed among the refugees, with people helping each other and sharing what little they had.</p>
-      
-      <p>Dr. Tran's medical training proved invaluable in the camp, as he worked to treat illnesses and injuries with extremely limited resources. For four long months, the family lived in limbo, waiting for news of possible resettlement while hoping that Dr. Tran's wife might somehow join them.</p>
-      
-
-      <br>
-      <h2 class="text-2xl font-bold mb-4">A New Beginning in Canada</h2>
-      <p>After four months on the island, Dr. Tran and his children were finally selected for resettlement in Canada. They arrived during the harsh winter months, a stark contrast to Vietnam's tropical climate. The family was sponsored by a church group in Toronto, who provided housing, clothing, and support as they adjusted to their new life.</p>
-      
-      <p>Though Dr. Tran had to undergo recertification to practice medicine in Canada, he eventually established himself as a respected physician. His children thrived in the Canadian education system, both eventually pursuing careers in healthcare, inspired by their father's dedication and resilience.</p>
-      
-
-      <br>
-      <h2 class="text-2xl font-bold mb-4">Family Reunification</h2>
-      <p>After three years of separation, Dr. Tran's wife was finally able to join the family in Canada through the family reunification program. The reunion was bittersweet—joyful for the family to be together again, but marked by the years of separation and the trauma they had each endured separately.</p>
-      
-      <p>Today, the Tran family's story serves as a powerful testament to the human capacity for survival and renewal. Their journey from Vietnam to Canada exemplifies the experiences of many Vietnamese refugees who risked everything for freedom and found a new home in a country that opened its doors during their time of greatest need.</p>
-    `,
-    relatedStories: ["kim-thuy-literary-journey", ]
-  },
-
-
+  
 ];
 
 export default storiesData;

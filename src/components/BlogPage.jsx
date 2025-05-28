@@ -38,7 +38,7 @@ const BlogPage = () => {
       <section className="py-16 bg-indigo-900 text-white">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            {filterInfo ? `Blog: ${filterInfo.type === 'category' ? filterInfo.value : '#' + filterInfo.value}` : 'Blog'}
+            {filterInfo ? `History: ${filterInfo.type === 'category' ? filterInfo.value : '#' + filterInfo.value}` : 'History'}
           </h1>
           <p className="text-2xl text-indigo-100 max-w-3xl">
             {filterInfo 

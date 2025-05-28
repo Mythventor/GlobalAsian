@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h3 className="text-xl font-bold mb-4">Vietnamese Journeys</h3>
             <p className="text-indigo-200">
-              Documenting the stories, history, and legacy of Vietnamese refugees.
+              Documenting the stories, history, and legacy of Vietnamese refugees in Canada.
             </p>
           </div>
           <div className="md:col-span-1">
@@ -26,10 +26,8 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h4 className="text-lg font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-indigo-200">
-              <li><Link to="/oral-history" className="hover:text-white transition">Oral History Archive</Link></li>
-              <li><Link to="/gallery" className="hover:text-white transition">Photo Gallery</Link></li>
-              <li><Link to="/research" className="hover:text-white transition">Research Papers</Link></li>
-              <li><Link to="/submit-story" className="hover:text-white transition">Submit Your Story</Link></li>
+              <li><Link to="https://www.vietnameseboatpeople.org/podcast" className="hover:text-white transition">Podcast</Link></li>
+              <li><Link to="https://docs.google.com/forms/d/e/1FAIpQLSfDgWp4BNzOeXKUtqM4pMQKU2S37uuYldk9J3qKmHCKx7ZoGA/viewform?usp=header" className="hover:text-white transition">Submit Your Story</Link></li>
             </ul>
           </div>
         </div>

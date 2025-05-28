@@ -30,8 +30,8 @@ const Header = () => {
   const navItems = [
     { id: 'home', label: 'Home', path: '/' },
     { id: 'timeline', label: 'Timeline', path: '/timeline' },
+    { id: 'blog', label: 'History', path: '/blog' },
     { id: 'stories', label: 'Stories', path: '/stories' },
-    { id: 'blog', label: 'Blog', path: '/blog' },
     { id: 'bibliography', label: 'Bibliography', path: '/bibliography' },
     { id: 'about', label: 'About Us', path: '/about' },
   ];
